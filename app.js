@@ -47,7 +47,6 @@ function afficheFormFr() {
     
 }
 chercheFrElt.addEventListener("click", afficheFormFr);
-// faire fonction afficherFormFr et afficherFormMonde 
 
 // création formulaire MONDE
 
