@@ -4,12 +4,10 @@ var formFrElt = document.getElementById("formFr"); // Affichage formulaire FR
 var formMondeElt = document.getElementById("formMonde"); // Affichage formulaire Monde
 var tbodyElt = document.querySelector("tbody"); // Affichage résultat requète
 
-var chercheFrElt = document.getElementById("chercheFr"); //  Event pour faire apparaitre le formulaire FR
 
-// 
 
 // création formulaire FRANCE
-function afficheFormFr(){
+function afficheFormFr() {
     var divFormFr = document.createElement("div");
 
     inputVille = document.createElement("input");
@@ -45,11 +43,56 @@ function afficheFormFr(){
     divFormFr.appendChild(btnForm);
 
     formFrElt.appendChild(divFormFr);
-  }
-
+}
+// Event pour afficher formFR au clique sur checkox France
+var chercheFrElt = document.getElementById("chercheFr"); //  Event pour faire apparaitre le formulaire FR
 chercheFrElt.addEventListener("click", afficheFormFr);
 
+/////////////////////////////
+//empécher de créer un autre formulaire à chaque clique
+////////////////////////////
+
 // création formulaire MONDE
+function afficheFormMonde() {
+    var divFormMonde = document.createElement("div");
+
+    inputVille = document.createElement("input");
+    inputVille.type = "text";
+    inputVille.id = "monde";
+    inputVille.placeholder = "Entrez votre ville";
+    divFormMonde.appendChild(inputVille);
+
+    //options checkbox
+    inputTempRessent = document.createElement("input");
+    inputTempRessent.type = "checkbox";
+    inputTempRessent.id = "tempRessent";
+    inputTempRessent.innerHTML = +"<label>Température ressentie</label>";
+    divFormMonde.appendChild(inputTempRessent);
+
+    inputTempMax = document.createElement("input");
+    inputTempMax.type = "checkbox";
+    inputTempMax.id = "tempMax";
+    inputTempMax.textContent = "Température Maximum";
+    divFormMonde.appendChild(inputTempMax);
+
+    inputTempMin = document.createElement("input");
+    inputTempMin.type = "checkbox";
+    inputTempMin.id = "tempMin";
+    inputTempMin.textContent = "Température Minimum";
+    divFormMonde.appendChild(inputTempMin);
+
+    // création boutton envoie
+    btnForm = document.createElement("button");
+    btnForm.textContent = "valider";
+    btnForm.id = "btn_envoie";
+    btnForm.type = "button";
+    divFormMonde.appendChild(btnForm);
+
+    formMondeElt.appendChild(divFormMonde);
+}
+// Event pour afficher formMonde au clique sur checkox Monde
+var chercheMondeElt = document.getElementById("chercheMonde"); //  Event pour faire apparaitre le formulaire FR
+chercheMondeElt.addEventListener("click", afficheFormMonde);
 
 
 /// FORM A REPRODUIRE //
