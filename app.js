@@ -1,14 +1,15 @@
 // récup des éléments html
-var alertErreurElt = document.getElementById("alertErreur");
-var formFrElt = document.getElementById("formFr");
-var formMondeElt = document.getElementById("formMonde");
-var tbodyElt = document.querySelector("tbody");
-var chercheFrElt = document.getElementById("chercheFr");
+var alertErreurElt = document.getElementById("alertErreur"); // Affichage d'alerte ERREUR
+var formFrElt = document.getElementById("formFr"); // Affichage formulaire FR
+var formMondeElt = document.getElementById("formMonde"); // Affichage formulaire Monde
+var tbodyElt = document.querySelector("tbody"); // Affichage résultat requète
+
+var chercheFrElt = document.getElementById("chercheFr"); //  Event pour faire apparaitre le formulaire FR
 
 // 
 
 // création formulaire FRANCE
-function afficheFormFr() {
+function afficheFormFr(){
     var divFormFr = document.createElement("div");
 
     inputVille = document.createElement("input");
@@ -43,9 +44,9 @@ function afficheFormFr() {
     btnForm.type = "button";
     divFormFr.appendChild(btnForm);
 
-    divFormFr.appendChild(formFrElt);
-    
-}
+    formFrElt.appendChild(divFormFr);
+  }
+
 chercheFrElt.addEventListener("click", afficheFormFr);
 
 // création formulaire MONDE
