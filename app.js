@@ -34,20 +34,18 @@ function afficheFormFr() {
     divFormFr.appendChild(inputTempMin);
 
     // création boutton envoie
-    btnForm = document.createElement("button");
-    btnForm.textContent = "valider";
-    btnForm.id = "btnEnvoieFr";
-    btnForm.type = "button";
-    divFormFr.appendChild(btnForm);
+    btnFormFr = document.createElement("button");
+    btnFormFr.textContent = "valider";
+    btnFormFr.type = "button";
+    divFormFr.appendChild(btnFormFr);
 
     formFrElt.appendChild(divFormFr); // attache DIV FORM FR à élément HTML div formFR
 }
 // Event pour afficher formFR au clique sur checkox France
 var chercheFrElt = document.getElementById("chercheFr");
 chercheFrElt.addEventListener("click", afficheFormFr);
-/////////////////////////////
-//empécher de créer un autre formulaire à chaque clique
-////////////////////////////
+
+
 // création formulaire MONDE
 function afficheFormMonde() {
     var divFormMonde = document.createElement("div");
@@ -78,11 +76,10 @@ function afficheFormMonde() {
     divFormMonde.appendChild(inputTempMin);
 
     // création boutton envoie
-    btnForm = document.createElement("button");
-    btnForm.textContent = "valider";
-    btnForm.id = "btnEnvoieMonde";
-    btnForm.type = "button";
-    divFormMonde.appendChild(btnForm);
+    btnFormMonde = document.createElement("button");
+    btnFormMonde.textContent = "valider";    
+    btnFormMonde.type = "button";
+    divFormMonde.appendChild(btnFormMonde);
 
     formMondeElt.appendChild(divFormMonde); // atache DIV FORM MONDE à élément HTML div formMonde
 }
@@ -90,16 +87,24 @@ function afficheFormMonde() {
 var chercheMondeElt = document.getElementById("chercheMonde"); 
 chercheMondeElt.addEventListener("click", afficheFormMonde); 
 
-// Cacher THEAD au démarrage // event sur clique btn_envoie marche pas
-// var thead=document.querySelector("thead");
-// thead.style.visibility="hidden";
-// Fonction afficheThead au clique sur Valider
-// var btn_envoie = document.getElementById("btn_envoie");
-// function afficheThead(){
-//     thead.style.visibility="visible";
-// }
-// btn_envoie.addEventListener("click", afficheThead);
 
+/////////////// A REVOIR ////////////////////////////
+//empécher de créer un autre formulaire à chaque clique
+chercheFrElt.removeEventListener('click', afficheFormFr);
+chercheMondeElt.removeEventListener('click', afficheFormMonde);
+
+
+
+//////////////// A REVOIR EVENT clique sur valider = affiche THEAD
+// Cacher THEAD au démarrage // event sur clique btn_envoie marche pas
+var thead=document.querySelector("thead");
+thead.style.visibility="hidden";
+// Fonction afficheThead au clique sur Valider
+var btnFormFr= document.getElementById("btnFormFr");
+function afficheThead(){
+    thead.style.visibility="visible";
+}
+btnFormFr.addEventListener("click", afficheThead);
 
 
 
@@ -119,8 +124,8 @@ newTr.appendChild(vent);
 
 var httpRequest = new XMLHttpRequest();
 
-document.getElementById("btnEnvoiefr").addEventListener("click", makeRequestFrance);
-document.getElementById("btnEnvoieMonde").addEventListener("click", makeRequestMonde);
+btnFormFr.addEventListener("click", makeRequestFrance);
+btnFormMonde.addEventListener("click", makeRequestMonde);
 
 function makeRequestFrance() {
     var france = document.getElementById("france").value;
