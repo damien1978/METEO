@@ -24,7 +24,7 @@ divFormMonde.appendChild(btnFormMonde);
 // création formulaire FRANCE
 function afficheFormFr() {
       var divFormFr = document.createElement("div");
-
+      var label = document.createElement("label");
       inputVilleFr = document.createElement("input");
       inputVilleFr.type = "text";
       inputVilleFr.placeholder = "Entrez votre ville FR";
@@ -34,25 +34,33 @@ function afficheFormFr() {
       inputTempRessent = document.createElement("input");
       inputTempRessent.type = "checkbox";
       inputTempRessent.id = "tempRessent";
-      inputTempRessent.innerText = "Température ressentie";
+      label.for = "tempRessent";
+      label.innerText = "Température Ressentie";
+      divFormFr.appendChild(label);
       divFormFr.appendChild(inputTempRessent);
 
       inputTempMax = document.createElement("input");
       inputTempMax.type = "checkbox";
       inputTempMax.id = "tempMax";
-      inputTempMax.textContent = "Température Maximum";
+      label.for = "tempMax";
+      label.innerText = "Température Maximum";
+      divFormFr.appendChild(label);
       divFormFr.appendChild(inputTempMax);
 
       inputTempMin = document.createElement("input");
       inputTempMin.type = "checkbox";
       inputTempMin.id = "tempMin";
-
+      label.for = "tempMin";
+      label.innerText = "Température Minimum";
+      divFormFr.appendChild(label);
       divFormFr.appendChild(inputTempMin);
 
       // création boutton envoie
       btnFormFr = document.createElement("button");
       btnFormFr.textContent = "valider";
       btnFormFr.type = "button";
+      btnFormFr.id = "btnFormFr";
+      btnFormFr.addEventListener("click", afficheThead);
       divFormFr.appendChild(btnFormFr);
 
       formFrElt.appendChild(divFormFr); // attache DIV FORM FR à élément HTML div formFR
@@ -112,15 +120,17 @@ chercheMondeElt.addEventListener("click", afficheFormMonde);
 
 //////////////// A REVOIR EVENT clique sur valider = affiche THEAD
 // Cacher THEAD au démarrage // event sur clique btn_envoie marche pas
-// var thead = document.querySelector("thead");
-// thead.style.visibility = "hidden";
-// // Fonction afficheThead au clique sur Valider
-// var btnFormFr = document.getElementById("btnFormFr");
+var thead = document.querySelector("thead");
+thead.style.visibility = "hidden";
+// Fonction afficheThead au clique sur Valider
+// var btnFormF = document.getElementById("btnFormFr");
 
-// function afficheThead() {
-//       thead.style.visibility = "visible";
-// }
-// btnFormFr.addEventListener("click", afficheThead);
+// btnFormF
+
+function afficheThead() {
+      thead.style.visibility = "visible";
+}
+
 
 ///// AJAX /////
 
