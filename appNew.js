@@ -24,35 +24,45 @@ divFormMonde.appendChild(btnFormMonde);
 // création formulaire FRANCE
 function afficheFormFr() {
       var divFormFr = document.createElement("div");
-      var label = document.createElement("label");
+      
       inputVilleFr = document.createElement("input");
       inputVilleFr.type = "text";
       inputVilleFr.placeholder = "Entrez votre ville FR";
       divFormFr.appendChild(inputVilleFr);
 
-      //options checkbox
+      ////////OPTIONS CHECKBOX////////
+      
+      //Température ressentie
       inputTempRessent = document.createElement("input");
+      var labelTempRessent = document.createElement("label");
+
       inputTempRessent.type = "checkbox";
       inputTempRessent.id = "tempRessent";
-      label.for = "tempRessent";
-      label.innerText = "Température Ressentie";
-      divFormFr.appendChild(label);
+      labelTempRessent.for = "tempRessent";
+      labelTempRessent.innerText = "Température Ressentie";
+      divFormFr.appendChild(labelTempRessent);
       divFormFr.appendChild(inputTempRessent);
 
+      //Température MAX
       inputTempMax = document.createElement("input");
+      var labelTempMax = document.createElement("label");
+
       inputTempMax.type = "checkbox";
       inputTempMax.id = "tempMax";
-      label.for = "tempMax";
-      label.innerText = "Température Maximum";
-      divFormFr.appendChild(label);
+      labelTempMax.for = "tempMax";
+      labelTempMax.innerText = "Température Maximum";
+      divFormFr.appendChild(labelTempMax);
       divFormFr.appendChild(inputTempMax);
 
+      //Température MIN
       inputTempMin = document.createElement("input");
+      var labelTempMin = document.createElement("label");
+
       inputTempMin.type = "checkbox";
       inputTempMin.id = "tempMin";
-      label.for = "tempMin";
-      label.innerText = "Température Minimum";
-      divFormFr.appendChild(label);
+      labelTempMin.for = "tempMin";
+      labelTempMin.innerText = "Température Minimum";
+      divFormFr.appendChild(labelTempMin);
       divFormFr.appendChild(inputTempMin);
 
       // création boutton envoie
